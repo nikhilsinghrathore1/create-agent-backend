@@ -9,7 +9,6 @@ import { errorHandler } from './middleware/errorHandler.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(helmet());
@@ -23,7 +22,7 @@ app.use('/chat', chatRouter);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-               res.json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
 // Error handling middleware
@@ -31,12 +30,9 @@ app.use(errorHandler);
 
 // 404 handler
 app.use('*', (req, res) => {
-               res.status(404).json({ error: 'Route not found' });
+  res.status(404).json({ error: 'Route not found' });
 });
 
-app.listen(PORT, () => {
-               console.log(`🚀 Server running on port ${PORT}`);
-               console.log(`📊 Health check: http://localhost:${PORT}/health`);
-});
+// ❌ REMOVE app.listen() - Vercel handles this automatically
 
 export default app;
