@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "builds": [
     {
       "src": "src/index.js",
@@ -11,8 +12,5 @@
       "src": "/(.*)",
       "dest": "src/index.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
