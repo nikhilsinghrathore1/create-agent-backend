@@ -34,5 +34,6 @@ app.use('*', (req, res) => {
 });
 
 // ❌ REMOVE app.listen() - Vercel handles this automatically
-
+// app.listen(4000)
+// 
 export default app;
